@@ -1,0 +1,49 @@
+@layer components {
+    button.btn {
+        position: relative;
+        padding: var(--button-padding-block) var(--button-padding-inline);
+        border: var(--button-border-width) solid var(--button-border-color);
+        border-radius: var(--button-radius);
+        overflow: hidden;
+        background-color: var(--button-background);
+        color: var(--button-text-color);
+        font: inherit;
+        cursor: pointer;
+        transition: background-color var(--buttons-hover-duration) var(--buttons-hover-timing-function);
+    }
+
+    button.btn:hover {
+        background-color: var(--button-background-hover);
+    }
+
+    button.btn:focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 0.2rem;
+    }
+
+    .waves-ripple {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: var(--button-ripple-size);
+        height: var(--button-ripple-size);
+        border-radius: 50%;
+        pointer-events: none;
+        background-color: var(--button-ripple-color);
+        transform: translate(-50%, -50%) scale(0);
+        opacity: var(--button-ripple-opacity);
+        animation: button-ripple var(--buttons-active-duration) ease-out forwards;
+    }
+
+    @keyframes button-ripple {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: var(--button-ripple-opacity);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(var(--wave-scale, 12));
+            opacity: 0;
+        }
+    }
+}

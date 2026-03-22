@@ -36,14 +36,11 @@
 	img,
 	picture,
 	video,
-	canvas {
+	canvas,
+	svg {
 		display: block;
 		max-inline-size: 100%;
 		block-size: auto;
-	}
-
-	svg {
-		max-inline-size: 100%;
 	}
 
 	svg:not([fill]) {
@@ -87,10 +84,6 @@
 	:disabled {
 		opacity: 0.8;
 		cursor: not-allowed;
-	}
-
-	:focus-visible {
-		outline-offset: 0.2rem;
 	}
 
 	/* Hacks to disable the background applied on inputs when firefox prefilling form */

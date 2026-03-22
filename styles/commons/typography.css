@@ -1,6 +1,6 @@
 @layer typography {
 	:root {
-		font-family: "Inter", sans-serif;
+		font-family: var(--font), sans-serif;
 	}
 
 	h1,

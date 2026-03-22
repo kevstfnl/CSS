@@ -7,12 +7,22 @@
         --lg: 64rem;
         --xl: 80rem;
 
+        --font: "NunitoSans";
+
         /* Animations */
         --theme-change-duration: 250ms;
         --theme-change-timing-function: ease-in-out;
         --buttons-hover-duration: 250ms;
         --buttons-hover-timing-function: cubic-bezier(.13, .87, .73, .99);
         --buttons-active-duration: 600ms;
+
+        /* Buttons */
+        --button-padding-inline: 1.25rem;
+        --button-padding-block: 0.85rem;
+        --button-radius: 3rem;
+        --button-border-width: 1px;
+        --button-ripple-size: 1rem;
+        --button-ripple-opacity: 0.35;
     }
 }
 
@@ -23,26 +33,36 @@
     :root {
         --background: whitesmoke;
         --text: black;
+        --button-background: #111827;
+        --button-background-hover: #1f2937;
+        --button-text-color: whitesmoke;
+        --button-border-color: rgb(17 24 39 / 0.12);
+        --button-ripple-color: rgb(255 255 255 / 0.7);
     }
 
     /* Si en theme sombre: */
     :root[theme="dark"] {
         --background: black;
         --text: whitesmoke;
+        --button-background: #f3f4f6;
+        --button-background-hover: #ffffff;
+        --button-text-color: #111827;
+        --button-border-color: rgb(255 255 255 / 0.16);
+        --button-ripple-color: rgb(17 24 39 / 0.22);
     }
 }
 
 /* Transition douce lors du changement de theme */
-html[theme-transition="true"],
-html[theme-transition="true"] * {
-    transition-property:
-        background-color,
-        color,
-        border-color,
-        outline-color,
-        box-shadow,
-        fill,
-        stroke;
-    transition-duration: var(--theme-change-duration);
-    transition-timing-function: var(--theme-change-timing-function);
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+    z-index: 1;
+}
+
+::view-transition-new(root) {
+    z-index: 2;
 }
