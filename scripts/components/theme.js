@@ -39,7 +39,8 @@ async function processEffect(element) {
     const bottom = window.innerHeight - y;
     const radius = Math.hypot(Math.max(x, right), Math.max(y, bottom));
 
-    document.startViewTransition(() => { toggleTheme() });
+    const view = document.startViewTransition(() => { toggleTheme() });
+    await view.ready;
 
     html.animate({
         clipPath: [
